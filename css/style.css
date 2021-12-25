@@ -1,0 +1,1353 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+:root{
+    --clr: rgba(255, 255, 255, 0);
+    --clrnav: #222327;
+}
+
+
+
+body.off{
+  filter: invert(1) hue-rotate(180deg);
+  background-color: black;
+}
+
+
+body{
+  background-color: white;
+}
+
+
+/* --------------- Use inverted class for make color same while invert------------------- */
+
+.invert{
+  filter: invert(1) hue-rotate(180deg);
+}
+
+
+
+
+
+/* ------------------------------------------- Header Logo --------------------------------------- */
+
+.primary-icon{          
+
+    height: 45px;
+    margin-top: 25px;
+    margin-left: 50px;
+    margin-right: auto;
+}
+
+@media (max-width:430px){
+    .primary-icon{
+      margin-left: 15px;
+      display: none;
+    }
+}
+
+
+
+
+header{
+    position: sticky;
+    height: 90px;
+    top: 0px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    z-index: 50;
+    box-shadow: rgba(155, 155, 155, 0.13) 2px 2px;
+    
+}
+
+nav{
+    
+    
+    display: flex;
+    justify-content: space-between;
+    align-items:right;
+    min-height: 15vh;
+    background: var(--clr);
+}
+
+
+
+.navigation{
+    width: 200px;
+    height: 50px;
+    margin-top: 25px;
+    margin-right: 130px;
+    background: var(--clrnav);
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+@media (max-width:430px){
+    .navigation{margin-right: 170px;}
+}
+
+
+@media (max-width:380px){
+    .navigation{margin-right: 125px;}
+}
+
+
+@media (max-width:325px){
+  .navigation{margin-right: 110px;}
+}
+
+.navigation ul{
+    display: flex;
+    width: 350px;
+}
+
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1 ;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500 ;
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    line-height: 78px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: white;
+}
+
+.navigation ul li.active a .icon{
+    transform: translateY(35px);
+}
+
+.navigation ul li a .text{
+    position: absolute;
+    color: white;
+    font-weight: 600;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+
+.navigation ul li.active a .text{
+    opacity: 1;
+    transform: translateY(-8px);
+}
+
+.indicator{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    /* icon color */
+    background: var(--clrnav);
+    top: 70%;
+    left: 5px;
+    border-radius: 50%;
+    border: 6px solid white;
+    transition: 0.5s;  
+}
+/* .indicator::before{
+   content: '';
+   position: absolute;
+   top: 50px;
+   right: -22px;
+   width: 20px;
+   background: red;
+
+} */
+
+.navigation ul li:nth-child(1).active ~ .indicator{
+    transform: translateX(calc( 70px * 0 ));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator{
+    transform: translateX(calc( 70px * 1 ));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator{
+    transform: translateX(calc( 70px * 2 ));
+}
+
+/* ------------------------Nav Css End------------ */
+
+
+.switch{
+  position: absolute;
+  margin-top: 25px;
+  margin-right: 50px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(#eee, #eee, #eee);
+  border: 3px solid #222327;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.switch .btn{
+  position: relative;
+  width: 12px;
+  height: 25px;
+  background: linear-gradient(#777, #fff, #777);
+  border-radius: 3px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.switch .btn:before{
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  background: linear-gradient(#fff, #fff);
+  border-radius: 2px;
+}
+
+.off .switch .btn:before{
+ 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  filter: invert(1);
+  
+  
+}
+
+#audio{
+  display: none;
+
+}
+
+@media (max-width:310px){
+   .switch{
+    margin-right: 15px;
+  }
+}
+
+
+
+
+
+/* ------------------------------------------------- Navigation Bar End ------------------------------------------- */
+
+.parent{
+    
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* margin: auto; */
+    height: auto;
+    background: white;
+}
+
+.child{
+    background-color: rgba(255, 255, 255, 0);
+    flex: 1 1 450px;
+    height: auto;
+    margin: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.child .info{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.child p{
+    padding: 20px;
+}
+
+@media (max-width: 768px){
+    .parent{height: auto;}
+}
+
+
+@media (max-width: 325px){
+    .parent{
+      padding: 20px 5px;
+
+
+    }
+}
+
+
+.social{
+  position: relative;
+  display: flex;
+  justify-content: left;
+  padding-top: 15px;
+  transform-style: preserve-3d;
+  
+  /* transform: rotate(-25deg) skew(25deg) ; */
+}
+
+
+@media (max-width: 1030px){
+  .social{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 430px){
+  .social{
+    justify-content: left;
+  }
+}
+
+
+.social li{
+  position: relative;
+  list-style: none;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+ 
+}
+
+@media (max-width: 380px){
+  .social li{
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 325px){
+  .social li{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.social li span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: #9BD2A5 ;
+  color :rgba(255, 255, 255, 0.2);
+  font-size: 25px !important;
+  border: 2px solid #222327;
+  color: #222327;
+
+}
+
+@media (max-width: 380px){
+  .social li span{
+    font-size: 20px !important;
+    border: 1.5px solid #222327;
+  }
+}
+
+
+@media (max-width: 325px){
+  .social li span{
+    font-size: 15px !important;
+    border: 1px solid #222327;
+  }
+}
+
+
+
+.social li:hover span{
+  z-index: 1000;
+  transition: 0.5s;
+  color: #fff;
+  border: none;
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.social li:hover span:nth-child(4){
+  transform: translate(12px, -12px) ;
+  opacity: 1;
+}
+
+.social li:hover span:nth-child(3){
+  transform: translate(8px, -8px) ;
+  opacity: 0.5;
+}
+
+.social li:hover span:nth-child(2){
+  transform: translate(3px, -3px) ;
+  opacity: 0.2;
+}
+
+.social li:hover span:nth-child(1){
+  transform: translate(0px, 0px) ;
+  opacity: 0.05;
+}
+
+
+.social li:nth-child(1):hover span{
+  background: #0077b5;
+}
+
+.social li:nth-child(2):hover span{
+  
+  background: #DB4437;
+}
+
+.social li:nth-child(3):hover span{
+  background: #211f1f;
+}
+
+.social li:nth-child(4):hover span{
+  background: #FF0000;
+}
+
+.social li:nth-child(5):hover span{
+  background: #053eff;
+}
+
+
+
+/* ------------------------------------------ End Introduction Section Flex --------------------------- */
+
+/* ---------------------------------------------starting styling of Introduction Section--------------------------- */
+
+
+  .child h2 {
+
+    letter-spacing: 0.1px;
+    margin: 0;
+    font-size: 3.4em;
+    padding: 10px;
+    color: #9BD2A5;
+    text-shadow: 0 0.1em 20px rgba(0, 0, 0, 0.116), 0.05em -0.03em 0 #222327, 0.05em 0.005em 0 #222327, 0em 0.08em 0 #222327, 0.05em 0.08em 0 #222327, 0px -0.03em 0 #222327, -0.03em -0.03em 0 #222327, -0.03em 0.08em 0 #222327, -0.03em 0 0 #222327;
+   
+  }
+
+  @media (max-width: 770px){
+    .child h2{
+      font-size: 3.0em;
+      }
+    }
+ 
+ 
+    @media (max-width: 380px){
+    .child h2{
+      font-size: 2.0em;
+      }
+    }
+    
+
+
+  .child h3 {
+    margin: 0;
+    font-size: 3em;
+    padding: 10px;
+    color: #222327;
+
+  }
+
+
+  
+  @media (max-width: 770px){
+    .child h3{
+      font-size: 2.5em;
+      }
+    }
+
+
+    @media (max-width: 380px){
+    .child h3{
+      font-size: 1.8em;
+      }
+    }
+    
+
+  .child h4 {
+    margin: 0;
+    font-size: 1.5em;
+    padding: 10px;
+    color: #222327;
+   
+  }
+
+  .child h5 {
+    margin: 0;
+    font-size: 1.2em;
+    padding: 10px;
+    color: #222327;
+   
+  }
+
+
+.introSvg{
+    width: 450px;
+    float: right;
+}  
+
+
+
+
+
+@media (max-width: 1030px){
+.child.info{
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 430px){
+  .child.info{
+      justify-content: left;
+      text-align: left;
+    }
+  }
+
+
+
+  @media (max-width: 430px){
+  .child.info{
+      justify-content: left;
+      text-align: left;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+
+  @media (max-width: 325px){
+  .child.info{
+      justify-content: left;
+      text-align: left;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+
+@media (max-width: 1030px){
+  .child.image{
+    /* transform: translate(-50%, -50%);
+    padding-top: 275px; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 430px){
+  .child.image{
+    /* transform: translate(-50%, -50%);
+    padding-top: 275px; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+@media (max-width: 430px){
+  .introSvg{
+    width: 380px;
+    }
+  }
+
+
+  @media (max-width: 380px){
+  .introSvg{
+    width: 320px;
+    }
+  }
+
+  @media (max-width: 325px){
+  .introSvg{
+    width: 300px;
+    }
+  }
+
+
+
+/* -------------------------- SvG IntroAnimatin------------------------------------- */
+
+#pc,
+#board,
+#arrow1,
+#arrow2,
+#arrow3,
+#arrow4,
+#Man,
+#hair,
+#LHand,
+#RHand,
+#clock,
+#hours,
+#minutes,
+#plant,
+#p1,
+#p2,
+#p3,
+#p4
+{
+
+  cursor: pointer;
+  transform-box: fill-box;
+
+}
+
+#hair{
+  animation: hair ease-in-out 1.5s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes hair{
+
+  0%{ transform: rotate(2deg); }
+  100%{ transform: rotate(-2deg); }
+
+}
+
+
+#LHand{
+  animation: LHand ease-in-out 1.5s infinite alternate;
+  transform-origin: top;
+}
+
+@keyframes LHand{
+
+  0%{ transform: rotate(1deg); }
+  100%{ transform: rotate(-1deg); }
+
+}
+
+
+#RHand{
+  animation: RHand ease-in-out 1.5s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes RHand{
+
+  0%{ transform: rotate(5deg); }
+  100%{ transform: rotate(-5deg); }
+
+}
+
+
+#arrow1{
+  animation: arrow1 ease-in-out 1.5s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes arrow1{
+
+  0%{ transform: scale(1.1) }
+  100%{ transform: scale(0.5); }
+
+}
+
+
+#arrow2{
+  animation: arrow2 ease-in-out 1.5s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes arrow2{
+
+  0%{ transform: scale(1.1) }
+  100%{ transform: scale(0.5); }
+
+}
+
+
+#arrow3{
+  animation: arrow3 ease-in-out 1.5s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes arrow3{
+
+  0%{ transform: scale(1.1) }
+  100%{ transform: scale(0.5); }
+
+}
+
+
+#arrow4{
+  animation: arrow4 ease-in-out 1.5s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes arrow4{
+
+  0%{ transform: scale(1.1) }
+  100%{ transform: scale(0.5); }
+
+}
+
+
+#p1{
+  animation: p1 ease-in-out 1.5s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes p1{
+
+  0%{ transform: rotate(8deg); }
+  100%{ transform: rotate(-5deg); }
+
+}
+
+#p2{
+  animation: p2 ease-in-out 2s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes p2{
+
+  0%{ transform: rotate(3deg); }
+  100%{ transform: rotate(-5deg); }
+
+}
+
+#p3{
+  animation: p3 ease-in-out 1.3s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes p3{
+
+  0%{ transform: rotate(1deg); }
+  100%{ transform: rotate(-2deg); }
+
+}
+
+
+#p4{
+  animation: p4 ease-in-out 1.8s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes p4{
+
+  0%{ transform: rotate(4deg); }
+  100%{ transform: rotate(-2deg); }
+
+}
+
+
+#hours{
+
+  animation: clock 60s infinite linear;
+  transform-origin: bottom;
+
+}
+
+
+#minutes{
+  animation: clock 10s infinite linear;
+  transform-origin: bottom;
+
+}
+
+@keyframes clock{
+
+  0%{ transform: rotateX(0deg); }
+  100%{ transform: rotateZ(359deg); }
+
+}
+
+
+
+/* -------------------- Projects Css cards----------------- */
+
+
+.selectedWork{
+  padding: 10px 60px;
+  font-size: 2.5em;
+  color: #ffffff;
+}
+
+.selectedWork{
+
+  text-shadow: 0 0.1em 20px rgba(0, 0, 0, 0.116), 0.05em -0.03em 0 #9BD2A5, 0.05em 0.005em 0 #9BD2A5, 0em 0.08em 0 #9BD2A5, 0.05em 0.08em 0 #9BD2A5, 0px -0.03em 0 #9BD2A5, -0.03em -0.03em 0 #9BD2A5, -0.03em 0.08em 0 #9BD2A5, -0.03em 0 0 #9BD2A5;
+
+}
+
+
+
+@media (max-width: 1030px){
+
+  .selectedWork{
+    padding: 10px 60px 50px 0px;
+    font-size: 2.8em;
+    text-align: center;
+ 
+  }
+  
+
+}
+
+
+@media (max-width: 430px){
+
+  .selectedWork{
+    padding: 10px 60px 50px 0px;
+    font-size: 2.5em;
+    text-align: center;
+ 
+  }
+  
+
+}
+
+
+@media (max-width: 380px){
+
+  .selectedWork{
+    padding: 10px 0px 50px 40px;
+    font-size: 2.5em;
+    text-align: left;
+ 
+  }
+  
+
+}
+
+
+@media (max-width: 325px){
+
+  .selectedWork{
+    padding: 10px 0px 50px 25px;
+    font-size: 2rem;
+    text-align: left;
+ 
+  }
+  
+
+}
+
+
+
+
+
+.projects{
+  display: flex;
+  flex-direction: row;
+  margin: 5rem 7rem 0rem 9rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 3.5px solid #9BD2A5;
+  border-radius: 6px;
+}
+
+.projectImg{
+  flex: 1;
+  padding: 2rem 2rem 2rem 0rem;
+}
+
+.projectImg svg{
+  width: 100%;
+  height: 100%;
+  width: 400px;
+  border-radius: 0.2rem;
+  object-fit: cover;
+  transform: translateX(-50px);
+
+}
+
+.projectInfo{
+  flex: 2;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.projectTitle{
+
+  letter-spacing: 2.5px;
+  margin: 1rem 0;
+  color: #9BD2A5;
+    text-shadow: 0 0.1em 20px rgba(0, 0, 0, 0.116), 0.05em -0.03em 0 #222327, 0.05em 0.005em 0 #222327, 0em 0.08em 0 #222327, 0.05em 0.08em 0 #222327, 0px -0.03em 0 #222327, -0.03em -0.03em 0 #222327, -0.03em 0.08em 0 #222327, -0.03em 0 0 #222327;
+}
+
+
+.projectDiscription{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+
+.projectReadmore{
+  cursor: pointer;
+  border-radius: 0.1rem;
+  padding: 0.7rem;
+  background-color: #9BD2A5;
+  text-decoration: none;
+  color: #211f1f;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.projectReadmore:hover{
+  
+  padding: 0.8rem;
+  
+}
+
+
+@media only screen and (max-width: 600px) {
+  
+.projects{
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.projectImg{
+  flex: 1;
+  padding: 0rem 1rem 0rem 1rem;
+}
+
+.projectImg svg{
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  object-fit: cover;
+  transform: translateY(-20px);
+
+}
+
+.projectInfo{
+  flex: 2;
+  padding: 0rem 1rem 2rem 1rem;
+  margin: 2rem;
+}
+
+}
+
+
+
+@media (max-width: 1030px){
+  .projects{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .projectImg{
+    flex: 1;
+    padding: 0rem 5rem 0rem 5rem;
+  }
+
+
+  .projectImg svg{
+    width: 100%;
+    height: 100%;
+    width: 550px;
+    border-radius: 0.2rem;
+    object-fit: cover;
+    transform: translateY(-50px);
+  
+  }
+
+
+  .projectInfo{
+    flex: 2;
+    margin-top: 0px;
+    text-align: center;
+    margin-bottom: 2rem;
+    
+  }
+
+  
+  }
+
+
+  @media (max-width: 545px){
+    .projectImg svg{
+      width: 100%;
+      height: 100%;
+      width: 400px;
+      border-radius: 0.2rem;
+      object-fit: cover;
+      transform: translateY(-50px);
+    
+    }
+
+    .projectInfo{
+      flex: 2;
+      margin-top: 0px;
+      text-align: left;
+      
+    }
+
+    .projectImg{
+      flex: 1;
+      padding: 0rem 0rem 0rem 0rem;
+    }
+
+
+  }
+
+
+
+
+  @media (max-width: 430px){
+    .projectImg svg{
+      width: 100%;
+      height: 100%;
+      width: 300px;
+      border-radius: 0.2rem;
+      object-fit: cover;
+      transform: translateY(-50px);
+    
+    }
+
+    .projectInfo{
+      flex: 2;
+      margin-top: 0px;
+      text-align: left;
+      
+    }
+
+  }
+
+
+  @media (max-width: 380px){
+
+
+    .projectImg{
+      flex: 1;
+      padding: 0rem 0rem 0rem 0rem;
+    }
+
+
+    .projectImg svg{
+      width: 100%;
+      height: 100%;
+      width: 300px;
+      border-radius: 0.2rem;
+      object-fit: cover;
+      transform: translateY(-50px);
+    
+    }
+
+    .projectInfo{
+      flex: 2;
+      margin-top: 0px;
+      text-align: left;
+      padding: 0px;
+      
+    }
+
+
+  }
+
+
+
+
+  @media (max-width: 325px){
+
+
+    .projectImg{
+      flex: 1;
+      padding: 0rem 0rem 0rem 0rem;
+    }
+
+
+    .projectImg svg{
+      width: 100%;
+      height: 100%;
+      width: 230px;
+      border-radius: 0.2rem;
+      object-fit: cover;
+      transform: translateY(-50px);
+    
+    }
+  }
+
+
+  /* --------------------------- Project-1 Image Animations---------------------------------- */
+
+#Tab,
+#loveIcon,
+#love,
+#women,
+#womenHair,
+#WomenHeadMainGroup,
+#womenH,
+#WomenShoesGroup,
+#man,
+#head,
+#manH,
+#manShoes,
+#TabPoint,
+#button,
+#housrMainGroup
+
+{
+
+    cursor: pointer;
+    transform-box: fill-box;
+  
+}
+
+
+#love{
+  animation: love ease-in-out 1.5s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes love{
+
+  0%{ transform: scale(1); }
+  100%{ transform: scale(1.5); }
+
+}
+
+
+#button{
+  animation: button ease-in-out 1.5s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes button{
+
+  0%{ transform: scale(1); }
+  100%{ transform: scale(1.2); }
+
+}
+
+
+#TabPoint{
+  animation: TabPoint ease-in-out 1.2s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes TabPoint{
+
+  0%{ transform: scale(0.8); }
+  100%{ transform: scale(1); }
+
+}
+
+
+#womenHair{
+  animation: womenHair ease-in-out 1.5s infinite alternate;
+  transform-origin: top;
+}
+
+@keyframes womenHair{
+
+  0%{ transform: rotate(2deg); }
+  100%{ transform: rotate(-2deg); }
+
+}
+
+
+#womenH{
+  animation: womenH ease-in-out 1.5s infinite alternate;
+  transform-origin: top;
+}
+
+@keyframes womenH{
+
+  0%{ transform: rotate(3deg); }
+  100%{ transform: rotate(-3deg); }
+
+}
+
+
+
+#WomenShoesGroup{
+  animation: WomenShoesGroup ease-in-out 1.5s infinite alternate;
+  transform-origin: right;
+}
+
+@keyframes WomenShoesGroup{
+
+  0%{ transform: rotate(5deg); }
+  100%{ transform: rotate(-7deg); }
+
+}
+
+
+
+
+
+
+#head{
+  animation: head ease-in-out 1.5s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes head{
+
+  0%{ transform: rotate(5deg); }
+  100%{ transform: rotate(-5deg); }
+
+}
+
+
+#manH{
+  animation: manH ease-in-out 1.5s infinite alternate;
+  transform-origin: top;
+}
+
+@keyframes manH{
+
+  0%{ transform: rotate(5deg); }
+  100%{ transform: rotate(-5deg); }
+
+}
+
+
+
+#manShoes{
+  animation: manShoes ease-in-out 1.5s infinite alternate;
+  transform-origin: right;
+}
+
+@keyframes manShoes{
+
+  0%{ transform: rotate(5deg); }
+  100%{ transform: rotate(-5deg); }
+
+}
+
+
+
+
+/* ----------------------------------FooterStart-------------------------- */
+
+
+
+footer .line{
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  background-color: #e3ffe8;
+}
+
+
+footer h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+footer .socialFooter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+  list-style: none;
+  
+}
+
+.socialFooter li{
+  width: 50px;
+  height: 50px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.socialFooter li:hover{
+  width: 50px;
+  height: 50px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background-color: #dbf5df;
+}
+
+
+.socialFooter li a{
+   color: #211f1f;
+}
+
+
+.socialFooter li span{
+  font-size: 18px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
